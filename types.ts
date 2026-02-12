@@ -18,6 +18,7 @@ export interface PricingTier {
 }
 
 export interface GlobalDesign {
+  template: 'standard' | 'solid' | 'centered' | 'cyber' | 'brutalist' | 'minimalist';
   fontFamily: string;
   primaryColor: string;
   backgroundColor: string;
@@ -62,7 +63,7 @@ export const INITIAL_TIERS: PricingTier[] = [
     features: [
       { text: '5 Users', included: true },
       { text: 'Unlimited Projects', included: true },
-      { text: 'Priority Email Support', included: true },
+      { text: 'Priority Support', included: true },
       { text: 'Advanced Analytics', included: true },
     ],
     isPopular: true,
@@ -75,11 +76,11 @@ export const INITIAL_TIERS: PricingTier[] = [
     price: '99',
     currency: '$',
     frequency: '/month',
-    description: 'For large organizations needing scale.',
+    description: 'For large organizations with custom needs.',
     features: [
       { text: 'Unlimited Users', included: true },
-      { text: 'SSO & Security', included: true },
-      { text: '24/7 Phone Support', included: true },
+      { text: 'Unlimited Projects', included: true },
+      { text: '24/7 Dedicated Support', included: true },
       { text: 'Custom Integrations', included: true },
     ],
     isPopular: false,
@@ -89,13 +90,14 @@ export const INITIAL_TIERS: PricingTier[] = [
 ];
 
 export const INITIAL_DESIGN: GlobalDesign = {
+  template: 'standard',
   fontFamily: 'Inter',
-  primaryColor: '#3b82f6', // blue-500
-  backgroundColor: '#f8fafc', // slate-50
+  primaryColor: '#3b82f6',
+  backgroundColor: '#f8fafc',
   cardBackgroundColor: '#ffffff',
-  textColor: '#1e293b', // slate-800
+  textColor: '#1e293b',
   borderRadius: 'xl',
   showShadow: true,
-  layout: 'flex',
+  layout: 'grid',
   iconStyle: 'circle',
 };
