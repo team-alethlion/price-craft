@@ -39,16 +39,25 @@ export const CyberTemplate: React.FC<TemplateProps> = ({ tier, design, cardRadiu
 
       <div className="mb-8">
         <div className="flex justify-between items-start mb-4">
-            <h3 className="text-xl font-bold tracking-wide uppercase">{tier.title}</h3>
+            <h3 className="font-bold tracking-wide uppercase" style={{ fontSize: `${design.fontSizes.title}px` }}>
+              {tier.title}
+            </h3>
             {isPopular && <span className="text-xs px-2 py-1 rounded bg-white/10 text-white font-mono">POPULAR</span>}
         </div>
         <div className="flex items-baseline mb-2">
-          <span className="text-4xl font-black tracking-tight" style={{ textShadow: `0 0 20px ${glowColor}60` }}>
-            {tier.currency}{tier.price}
+          <span className="font-black tracking-tight self-start mr-1" style={{ textShadow: `0 0 20px ${glowColor}60`, fontSize: `${design.fontSizes.currency}px` }}>
+             {tier.currency}
           </span>
-          <span className="ml-1 text-sm opacity-50 font-mono">{tier.frequency}</span>
+          <span className="font-black tracking-tight leading-none" style={{ textShadow: `0 0 20px ${glowColor}60`, fontSize: `${design.fontSizes.price}px` }}>
+            {tier.price}
+          </span>
+          <span className="ml-1 opacity-50 font-mono" style={{ fontSize: `${design.fontSizes.frequency}px` }}>
+            {tier.frequency}
+          </span>
         </div>
-        <p className="text-sm text-slate-400 min-h-[40px] leading-relaxed">{tier.description}</p>
+        <p className="text-slate-400 min-h-[40px] leading-relaxed" style={{ fontSize: `${design.fontSizes.description}px` }}>
+          {tier.description}
+        </p>
       </div>
 
       {/* Cyber uses lightMode=true to force white text on features */}
@@ -62,7 +71,8 @@ export const CyberTemplate: React.FC<TemplateProps> = ({ tier, design, cardRadiu
             backgroundColor: isPopular ? glowColor : 'transparent',
             color: isPopular ? '#ffffff' : glowColor,
             border: `1px solid ${glowColor}`,
-            boxShadow: isPopular ? `0 0 15px ${glowColor}60` : 'none'
+            boxShadow: isPopular ? `0 0 15px ${glowColor}60` : 'none',
+            fontSize: `${design.fontSizes.button}px`
           }}
         >
           {tier.buttonText}

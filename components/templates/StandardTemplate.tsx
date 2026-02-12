@@ -36,15 +36,24 @@ export const StandardTemplate: React.FC<TemplateProps> = ({ tier, design, cardRa
       )}
 
       <div className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">{tier.title}</h3>
-        <p className="text-sm opacity-70 min-h-[40px] leading-relaxed">{tier.description}</p>
+        <h3 className="font-semibold mb-2" style={{ fontSize: `${design.fontSizes.title}px` }}>
+          {tier.title}
+        </h3>
+        <p className="opacity-70 min-h-[40px] leading-relaxed" style={{ fontSize: `${design.fontSizes.description}px` }}>
+          {tier.description}
+        </p>
       </div>
 
       <div className="mb-6 flex items-baseline">
-        <span className="text-4xl font-bold" style={{ color: isPopular ? design.primaryColor : 'inherit' }}>
-          {tier.currency}{tier.price}
+        <span className="font-bold self-start mr-1" style={{ color: isPopular ? design.primaryColor : 'inherit', fontSize: `${design.fontSizes.currency}px` }}>
+          {tier.currency}
         </span>
-        <span className="ml-1 text-sm opacity-60 font-medium">{tier.frequency}</span>
+        <span className="font-bold leading-none" style={{ color: isPopular ? design.primaryColor : 'inherit', fontSize: `${design.fontSizes.price}px` }}>
+          {tier.price}
+        </span>
+        <span className="ml-1 opacity-60 font-medium" style={{ fontSize: `${design.fontSizes.frequency}px` }}>
+          {tier.frequency}
+        </span>
       </div>
 
       <TemplateFeatures tier={tier} design={design} />

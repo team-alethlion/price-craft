@@ -22,7 +22,8 @@ export const TemplateFeatures: React.FC<TemplateFeaturesProps> = ({ tier, design
 
     if (iconStyle === 'simple') {
       return {
-        container: `flex-shrink-0 mt-0.5 w-5 h-5 flex items-center justify-center mr-3`,
+        container: `flex-shrink-0 w-5 h-5 flex items-center justify-center mr-3`,
+        // Adjust icon vertical alignment based on font size slightly
         style: {
           color: included ? activeColor : inactiveColor,
         }
@@ -31,7 +32,7 @@ export const TemplateFeatures: React.FC<TemplateFeaturesProps> = ({ tier, design
 
     const shapeClass = iconStyle === 'circle' ? 'rounded-full' : 'rounded-md';
     return {
-      container: `flex-shrink-0 mt-0.5 w-5 h-5 ${shapeClass} flex items-center justify-center mr-3`,
+      container: `flex-shrink-0 w-5 h-5 ${shapeClass} flex items-center justify-center mr-3`,
       style: {
         backgroundColor: included ? activeColor : 'transparent',
         color: included ? '#ffffff' : inactiveColor,
@@ -48,11 +49,14 @@ export const TemplateFeatures: React.FC<TemplateFeaturesProps> = ({ tier, design
           <div key={idx} className={`flex items-start group ${centered ? 'text-center' : ''}`}>
             <div 
               className={iconConfig.container}
-              style={iconConfig.style}
+              style={{...iconConfig.style, marginTop: '0.15em'}} // Relative margin for icon
             >
               {feature.included ? <Check size={12} strokeWidth={3} /> : <X size={12} />}
             </div>
-            <span className={`text-sm leading-5 ${feature.included ? '' : 'opacity-50 line-through'}`}>
+            <span 
+              className={`leading-relaxed ${feature.included ? '' : 'opacity-50 line-through'}`}
+              style={{ fontSize: `${design.fontSizes.features}px` }}
+            >
               {feature.text}
             </span>
           </div>
@@ -63,13 +67,16 @@ export const TemplateFeatures: React.FC<TemplateFeaturesProps> = ({ tier, design
 };
 
 export const TemplateButton: React.FC<{ tier: PricingTier; design: GlobalDesign; variant?: 'solid' | 'outline' | 'ghost' }> = ({ tier, design, variant = 'solid' }) => {
-  const style: React.CSSProperties = variant === 'solid' ? {
-    backgroundColor: design.primaryColor,
-    color: '#ffffff'
-  } : {
-    backgroundColor: 'transparent',
-    color: design.primaryColor,
-    border: `1px solid ${design.primaryColor}`
+  const style: React.CSSProperties = {
+    fontSize: `${design.fontSizes.button}px`,
+    ...(variant === 'solid' ? {
+      backgroundColor: design.primaryColor,
+      color: '#ffffff'
+    } : {
+      backgroundColor: 'transparent',
+      color: design.primaryColor,
+      border: `1px solid ${design.primaryColor}`
+    })
   };
 
   return (

@@ -24,14 +24,23 @@ export const MinimalistTemplate: React.FC<TemplateProps> = ({ tier, design, card
       }}
     >
       <div className="mb-8">
-        <h3 className="text-xs font-bold text-slate-400 mb-2 uppercase tracking-[0.2em]">{tier.title}</h3>
+        <h3 className="font-bold text-slate-400 mb-2 uppercase tracking-[0.2em]" style={{ fontSize: `${design.fontSizes.title}px` }}>
+          {tier.title}
+        </h3>
         <div className="flex items-baseline gap-1">
-          <span className="text-5xl font-light tracking-tight" style={{ color: isPopular ? design.primaryColor : 'inherit' }}>
-            {tier.currency}{tier.price}
+          <span className="font-light tracking-tight self-start mr-1" style={{ color: isPopular ? design.primaryColor : 'inherit', fontSize: `${design.fontSizes.currency}px` }}>
+            {tier.currency}
           </span>
-          <span className="text-sm text-slate-400">{tier.frequency}</span>
+          <span className="font-light tracking-tight leading-none" style={{ color: isPopular ? design.primaryColor : 'inherit', fontSize: `${design.fontSizes.price}px` }}>
+            {tier.price}
+          </span>
+          <span className="text-slate-400" style={{ fontSize: `${design.fontSizes.frequency}px` }}>
+            {tier.frequency}
+          </span>
         </div>
-        <p className="mt-4 text-sm leading-relaxed opacity-80 font-light">{tier.description}</p>
+        <p className="mt-4 leading-relaxed opacity-80 font-light" style={{ fontSize: `${design.fontSizes.description}px` }}>
+          {tier.description}
+        </p>
       </div>
 
       <div className="flex-grow">
@@ -42,13 +51,14 @@ export const MinimalistTemplate: React.FC<TemplateProps> = ({ tier, design, card
       <div className="mt-8 pt-6 border-t border-slate-100">
         <a 
           href={tier.buttonUrl}
-          className={`w-full block text-center py-3 px-4 rounded transition-all text-sm font-medium ${
+          className={`w-full block text-center py-3 px-4 rounded transition-all font-medium ${
             isPopular 
               ? 'text-white shadow-md hover:shadow-lg' 
               : 'text-slate-600 bg-slate-50 hover:bg-slate-100'
           }`}
           style={{
             backgroundColor: isPopular ? design.primaryColor : undefined,
+            fontSize: `${design.fontSizes.button}px`
           }}
         >
           {tier.buttonText}

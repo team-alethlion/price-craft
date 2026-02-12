@@ -28,15 +28,24 @@ export const BrutalistTemplate: React.FC<TemplateProps> = ({ tier, design }) => 
       }}
     >
       <div className="mb-6 border-b-2 border-slate-900 pb-4">
-        <h3 className="text-2xl font-black uppercase mb-2">{tier.title}</h3>
-        <p className="text-sm font-medium opacity-80 leading-relaxed border-l-2 border-slate-900 pl-3">{tier.description}</p>
+        <h3 className="font-black uppercase mb-2" style={{ fontSize: `${design.fontSizes.title}px` }}>
+          {tier.title}
+        </h3>
+        <p className="font-medium opacity-80 leading-relaxed border-l-2 border-slate-900 pl-3" style={{ fontSize: `${design.fontSizes.description}px` }}>
+          {tier.description}
+        </p>
       </div>
 
-      <div className="mb-8">
-        <span className="text-5xl font-black">
-          {tier.currency}{tier.price}
+      <div className="mb-8 flex items-baseline">
+        <span className="font-black self-start mr-1" style={{ fontSize: `${design.fontSizes.currency}px` }}>
+          {tier.currency}
         </span>
-        <span className="ml-1 text-sm font-bold uppercase tracking-wider opacity-60">{tier.frequency}</span>
+        <span className="font-black leading-none" style={{ fontSize: `${design.fontSizes.price}px` }}>
+          {tier.price}
+        </span>
+        <span className="ml-1 font-bold uppercase tracking-wider opacity-60" style={{ fontSize: `${design.fontSizes.frequency}px` }}>
+          {tier.frequency}
+        </span>
       </div>
 
       <TemplateFeatures tier={tier} design={{...design, iconStyle: 'square'}} />
@@ -48,7 +57,8 @@ export const BrutalistTemplate: React.FC<TemplateProps> = ({ tier, design }) => 
           style={{
             backgroundColor: isPopular ? design.primaryColor : '#ffffff',
             color: isPopular ? '#ffffff' : '#1e293b',
-            boxShadow: '4px 4px 0px 0px #000000'
+            boxShadow: '4px 4px 0px 0px #000000',
+            fontSize: `${design.fontSizes.button}px`
           }}
         >
           {tier.buttonText}

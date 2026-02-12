@@ -36,14 +36,23 @@ export const CenteredTemplate: React.FC<TemplateProps> = ({ tier, design, cardRa
       )}
 
       <div className="mb-6">
-        <h3 className="text-xl font-semibold mb-2" style={{ color: design.primaryColor }}>{tier.title}</h3>
+        <h3 className="font-semibold mb-2" style={{ color: design.primaryColor, fontSize: `${design.fontSizes.title}px` }}>
+          {tier.title}
+        </h3>
         <div className="flex items-baseline justify-center mb-4">
-          <span className="text-5xl font-bold">
-            {tier.currency}{tier.price}
+          <span className="font-bold self-start mr-1" style={{ fontSize: `${design.fontSizes.currency}px` }}>
+            {tier.currency}
           </span>
-          <span className="ml-1 text-sm opacity-60 font-medium">{tier.frequency}</span>
+          <span className="font-bold leading-none" style={{ fontSize: `${design.fontSizes.price}px` }}>
+            {tier.price}
+          </span>
+          <span className="ml-1 opacity-60 font-medium" style={{ fontSize: `${design.fontSizes.frequency}px` }}>
+            {tier.frequency}
+          </span>
         </div>
-        <p className="text-sm opacity-70 min-h-[40px] leading-relaxed mx-auto max-w-[200px]">{tier.description}</p>
+        <p className="opacity-70 min-h-[40px] leading-relaxed mx-auto max-w-[200px]" style={{ fontSize: `${design.fontSizes.description}px` }}>
+          {tier.description}
+        </p>
       </div>
 
       <hr className="border-slate-100 mb-8" />

@@ -17,6 +17,16 @@ export interface PricingTier {
   accentColor?: string; // Optional override per card
 }
 
+export interface ElementFontSizes {
+  title: number;
+  price: number;
+  currency: number;
+  frequency: number;
+  description: number;
+  features: number;
+  button: number;
+}
+
 export interface GlobalDesign {
   template: 'standard' | 'solid' | 'centered' | 'cyber' | 'brutalist' | 'minimalist';
   fontFamily: string;
@@ -28,6 +38,7 @@ export interface GlobalDesign {
   showShadow: boolean;
   layout: 'grid' | 'flex';
   iconStyle: 'circle' | 'square' | 'simple';
+  fontSizes: ElementFontSizes;
 }
 
 export interface AppState {
@@ -100,4 +111,13 @@ export const INITIAL_DESIGN: GlobalDesign = {
   showShadow: true,
   layout: 'grid',
   iconStyle: 'circle',
+  fontSizes: {
+    title: 20,
+    price: 36,
+    currency: 30,
+    frequency: 14,
+    description: 14,
+    features: 14,
+    button: 16,
+  }
 };

@@ -31,26 +31,35 @@ export const SolidTemplate: React.FC<TemplateProps> = ({ tier, design, cardRadiu
             Popular
             </div>
         )}
-        <h3 className="text-xl font-bold mb-2 relative z-10">{tier.title}</h3>
+        <h3 className="font-bold mb-2 relative z-10" style={{ fontSize: `${design.fontSizes.title}px` }}>
+          {tier.title}
+        </h3>
         <div className="flex items-baseline justify-center relative z-10">
-          <span className="text-4xl font-bold">
-            {tier.currency}{tier.price}
+          <span className="font-bold self-start mr-1" style={{ fontSize: `${design.fontSizes.currency}px` }}>
+            {tier.currency}
           </span>
-          <span className="ml-1 text-sm opacity-80 font-medium">{tier.frequency}</span>
+          <span className="font-bold leading-none" style={{ fontSize: `${design.fontSizes.price}px` }}>
+            {tier.price}
+          </span>
+          <span className="ml-1 opacity-80 font-medium" style={{ fontSize: `${design.fontSizes.frequency}px` }}>
+            {tier.frequency}
+          </span>
         </div>
-        <p className="text-sm opacity-80 mt-2 relative z-10">{tier.description}</p>
+        <p className="opacity-80 mt-2 relative z-10" style={{ fontSize: `${design.fontSizes.description}px` }}>
+          {tier.description}
+        </p>
       </div>
 
       <div className="p-8 flex flex-col flex-grow">
         <TemplateFeatures tier={tier} design={design} />
         <div className="mt-auto">
-             {/* Logic: if popular, use primary color button, otherwise faint bg */}
              <a 
                 href={tier.buttonUrl}
                 className={`w-full block text-center py-3 px-6 rounded-lg font-semibold transition-all hover:opacity-90 active:scale-[0.98]`}
                 style={{
                     backgroundColor: isPopular ? design.primaryColor : 'rgba(0,0,0,0.05)',
-                    color: isPopular ? '#ffffff' : design.textColor
+                    color: isPopular ? '#ffffff' : design.textColor,
+                    fontSize: `${design.fontSizes.button}px`
                 }}
             >
                 {tier.buttonText}
