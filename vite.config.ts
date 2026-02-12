@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     // Vital for GitHub Pages: matches your repository name
-    base: "/pricecraft/",
+    base: "/price-craft/",
 
     server: {
       port: 3000,
