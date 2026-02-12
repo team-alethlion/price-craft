@@ -1,0 +1,5 @@
+{
+  "name": "PriceCraft AI",
+  "description": "A powerful, AI-enhanced pricing card generator. Customize designs, generate tiers with Gemini, and export to PDF.",
+  "requestFramePermissions": []
+}
